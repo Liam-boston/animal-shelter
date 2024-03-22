@@ -41,11 +41,13 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
         // determine icon to display
         holder.animalIcon.setBackgroundResource(iconConfig(selected));
 
+        // concatenate age
+        String age = selected.getAge() + " years old";
+
         // display pet values
         holder.nameTextView.setText(selected.getName());
         holder.breedTextView.setText(selected.getBreed());
-        holder.colorTextView.setText(selected.getColor());
-        holder.ageTextView.setText(selected.getAge());
+        holder.ageTextView.setText(age);
     }
 
     /**
@@ -76,7 +78,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
         private final Context context;
         public CardView itemCard;
         public ImageView animalIcon;
-        public TextView nameTextView, breedTextView, colorTextView, ageTextView;
+        public TextView nameTextView, breedTextView, ageTextView;
 
         public ViewHolder(View petView) {
             super(petView);
@@ -87,10 +89,9 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
             animalIcon = petView.findViewById(R.id.animalIcon);
             nameTextView = petView.findViewById(R.id.nameTextView);
             breedTextView = petView.findViewById(R.id.breedTextView);
-            colorTextView = petView.findViewById(R.id.colorTextView);
             ageTextView = petView.findViewById(R.id.ageTextView);
 
-            // when an item is selected, open new ProductDetailView
+            // when an item is selected, open new PetDetailView
             itemCard.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -98,6 +99,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
 
                     Intent intent = new Intent(context, PetDetailView.class);
                     intent.putExtra("selected_pet", petList.get(getAdapterPosition()));
+
                     context.startActivity(intent);
                 }
             });

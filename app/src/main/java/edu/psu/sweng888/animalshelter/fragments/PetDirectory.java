@@ -32,8 +32,6 @@ public class PetDirectory extends Fragment {
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private PetAdapter petAdapter;
-    private List<Pet> petList;
-
     public PetDirectory() {
         // Required empty public constructor
     }
@@ -50,34 +48,34 @@ public class PetDirectory extends Fragment {
         // initialize RecyclerView
         recyclerView = view.findViewById(R.id.recycler_view);
 
-        // initialize Firestore instance and empty list
+        // initialize Firestore instance
         db = FirebaseFirestore.getInstance();
-        petList = new ArrayList<>();
 
         // retrieve pet values from Firestore db
         db.collection("pets").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                // initialize empty list
+                List<Pet> petList = new ArrayList<>();
+
                 if (task.isSuccessful()) {
+                    // add each Pet from Firestore to the list
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Pet p = document.toObject(Pet.class);
                         petList.add(p);
-
-                        Log.d(p.getType(), p.getName());
                     }
+
+                    // populate RecyclerView with values from Firestore db
+                    petAdapter = new PetAdapter(petList);
+                    layoutManager = new LinearLayoutManager(view.getContext());
+                    recyclerView.setLayoutManager(layoutManager);
+                    recyclerView.setItemAnimator(new DefaultItemAnimator());
+                    recyclerView.setAdapter(petAdapter);
                 } else {
                     Log.d("Document", "No data");
                 }
             }
         });
-
-        // populate RecyclerView with values from Firestore db
-        petAdapter = new PetAdapter(petList);
-        layoutManager = new LinearLayoutManager(view.getContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(petAdapter);
-
         return view;
     }
 }
