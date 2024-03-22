@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "734286021035",
+    "project_id": "animalshelter-sweng888",
+    "storage_bucket": "animalshelter-sweng888.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734286021035:android:6aec311f69ddbfed5492ee",
+        "android_client_info": {
+          "package_name": "edu.psu.sweng888.animalshelter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCddogELRqF4ReNzTETRKImC6eL-Z6POd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Whiskers &#38; Wags Animal Shelter</string>
+    <string name="nav_drawer_title">Welcome!</string>
+    <string name="nav_drawer_subtitle">We keep tails wagging, one home at a time.</string>
+    <string name="pet_directory">Adoptable Animals</string>
+    <string name="find_new_home">Find a new home</string>
+    <string name="search">Search</string>
+    <string name="navigation_drawer_open">Navigation item open</string>
+    <string name="navigation_drawer_closed">Navigation item closed</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="create_account">Create account</string>
+    <string name="return_to_login">Return to login</string>
+    <string name="back">Back</string>
+    <string name="adopt">Adopt</string>
+</resources>
