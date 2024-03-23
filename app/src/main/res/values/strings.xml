@@ -14,4 +14,15 @@
     <string name="return_to_login">Return to login</string>
     <string name="back">Back</string>
     <string name="adopt">Adopt</string>
+    <string name="search_description">Looking for a new furry companion? Search the directory of adoptable pets with the dropdown menu below!</string>
+
+    <!-- Dropdown options for the Search fragment -->
+    <string-array name="types">
+        <item>Dog</item>
+        <item>Puppy</item>
+        <item>Cat</item>
+        <item>Kitten</item>
+        <item>Bunny</item>
+        <item>Hamster</item>
+    </string-array>
 </resources>
